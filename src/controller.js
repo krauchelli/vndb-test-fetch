@@ -10,10 +10,13 @@ const searchVn = async (req, res) => {
     console.log(data);
 
     // extracting data
-    const { title } = data.results[0];
-    const imageUrl = data.results[0].image.url;
+    const results = data.results.map((result) => {
+      const { title } = result;
+      const imageUrl = result.image.url;
+      return { title, imageUrl };
+    });
 
-    res.status(201).render('resultvn', { title, imageUrl });
+    res.status(201).render('resultvn', { results });
   } catch (e) {
     console.error('error fetching data', e);
     res.status(500).json({ error: 'Failed to fetch data' });
