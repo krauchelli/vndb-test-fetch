@@ -2,6 +2,7 @@ const axios = require('axios');
 
 const searchVn = async (req, res) => {
   try {
+    // eslint-disable-next-line no-use-before-define
     const data = await fetchData({
       filters: ['search', '=', req.body.title],
       fields: 'title, image.url',
