@@ -3,7 +3,7 @@ const axios = require('axios');
 const searchVn = async (req, res) => {
   try {
     // eslint-disable-next-line no-use-before-define
-    const data = await fetchData({
+    const data = await fetchDataLookVN({
       filters: ['search', '=', req.body.title],
       fields: 'title, image.url',
     });
@@ -24,7 +24,7 @@ const searchVn = async (req, res) => {
 };
 
 // function used for axios
-async function fetchData(payload) {
+async function fetchDataLookVN(payload) {
   try {
     const response = await axios.post('https://api.vndb.org/kana/vn', payload);
     return response.data;
