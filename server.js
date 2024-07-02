@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const express = require('express');
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -11,7 +12,7 @@ const port = 3000;
 
 // middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // jika mengirimkan data dalam bentuk form
+app.use(express.urlencoded({ extended: true })); // if the data is coming from a form
 app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
